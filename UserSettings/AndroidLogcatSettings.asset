@@ -1,0 +1,143 @@
+{
+    "m_SelectedDeviceId": "R3CMB06TT1N",
+    "m_SelectedPackage": {
+        "deviceId": "R3CMB06TT1N",
+        "name": "com.DongCompany.aws_to_google",
+        "processId": 26896,
+        "exited": false
+    },
+    "m_SelectedPriority": 1,
+    "m_KnownPackagesForSerialization": [
+        {
+            "deviceId": "R3CMB06TT1N",
+            "name": "com.DongCompany.aws_to_google",
+            "processId": 27968,
+            "exited": true
+        },
+        {
+            "deviceId": "R3CMB06TT1N",
+            "name": "com.DongCompany.aws_to_google",
+            "processId": 23433,
+            "exited": true
+        },
+        {
+            "deviceId": "R3CMB06TT1N",
+            "name": "com.DongCompany.aws_to_google",
+            "processId": 27396,
+            "exited": true
+        },
+        {
+            "deviceId": "R3CMB06TT1N",
+            "name": "com.DongCompany.aws_to_google",
+            "processId": 30862,
+            "exited": true
+        },
+        {
+            "deviceId": "R3CMB06TT1N",
+            "name": "com.DongCompany.aws_to_google",
+            "processId": 31413,
+            "exited": true
+        },
+        {
+            "deviceId": "R3CMB06TT1N",
+            "name": "com.sec.android.app.launcher",
+            "processId": 1753,
+            "exited": false
+        },
+        {
+            "deviceId": "R3CMB06TT1N",
+            "name": "com.DongCompany.aws_to_google",
+            "processId": 32449,
+            "exited": false
+        },
+        {
+            "deviceId": "R3CMB06TT1N",
+            "name": "com.DongCompany.aws_to_google",
+            "processId": 4544,
+            "exited": false
+        },
+        {
+            "deviceId": "R3CMB06TT1N",
+            "name": "com.DongCompany.aws_to_google",
+            "processId": 5563,
+            "exited": false
+        },
+        {
+            "deviceId": "R3CMB06TT1N",
+            "name": "com.DongCompany.aws_to_google",
+            "processId": 27824,
+            "exited": false
+        },
+        {
+            "deviceId": "R3CMB06TT1N",
+            "name": "com.DongCompany.aws_to_google",
+            "processId": 26866,
+            "exited": false
+        },
+        {
+            "deviceId": "R3CMB06TT1N",
+            "name": "com.DongCompany.aws_to_google",
+            "processId": 17977,
+            "exited": false
+        },
+        {
+            "deviceId": "R3CMB06TT1N",
+            "name": "com.DongCompany.aws_to_google",
+            "processId": 26896,
+            "exited": false
+        }
+    ],
+    "m_Tags": {
+        "m_Entries": [
+            {
+                "m_Name": "Filter by all listed tags",
+                "m_Selected": false
+            },
+            {
+                "m_Name": "No Filter",
+                "m_Selected": true
+            },
+            {
+                "m_Name": "",
+                "m_Selected": false
+            },
+            {
+                "m_Name": "Tag Control...",
+                "m_Selected": false
+            },
+            {
+                "m_Name": "",
+                "m_Selected": false
+            },
+            {
+                "m_Name": "Unity",
+                "m_Selected": false
+            },
+            {
+                "m_Name": "CRASH",
+                "m_Selected": false
+            }
+        ]
+    },
+    "m_MemoryViewerState": {
+        "MemoryWindowHeight": 300.0,
+        "MemoryWindowWidth": 170.0,
+        "MemoryTypeEnabled": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+        ],
+        "MemoryGroup": 2,
+        "Behavior": 0
+    },
+    "m_Filter": "",
+    "m_FilterIsRegularExpression": false,
+    "m_SymbolPaths": []
+}
