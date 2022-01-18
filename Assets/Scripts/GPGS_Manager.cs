@@ -75,8 +75,9 @@ public class GPGS_Manager : MonoBehaviour
             }
             
             u_LoginId.text = Social.localUser.id;
-            Debug.Log(token);
-            Debug.Log(serverAuth);
+
+
+            /*CredentialsManager.credentials.AddLogin("accounts.google.com", token);*/
         }
         else
         {

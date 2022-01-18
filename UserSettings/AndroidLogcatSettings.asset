@@ -3,41 +3,11 @@
     "m_SelectedPackage": {
         "deviceId": "R3CMB06TT1N",
         "name": "com.DongCompany.aws_to_google",
-        "processId": 26896,
+        "processId": 28362,
         "exited": false
     },
     "m_SelectedPriority": 1,
     "m_KnownPackagesForSerialization": [
-        {
-            "deviceId": "R3CMB06TT1N",
-            "name": "com.DongCompany.aws_to_google",
-            "processId": 27968,
-            "exited": true
-        },
-        {
-            "deviceId": "R3CMB06TT1N",
-            "name": "com.DongCompany.aws_to_google",
-            "processId": 23433,
-            "exited": true
-        },
-        {
-            "deviceId": "R3CMB06TT1N",
-            "name": "com.DongCompany.aws_to_google",
-            "processId": 27396,
-            "exited": true
-        },
-        {
-            "deviceId": "R3CMB06TT1N",
-            "name": "com.DongCompany.aws_to_google",
-            "processId": 30862,
-            "exited": true
-        },
-        {
-            "deviceId": "R3CMB06TT1N",
-            "name": "com.DongCompany.aws_to_google",
-            "processId": 31413,
-            "exited": true
-        },
         {
             "deviceId": "R3CMB06TT1N",
             "name": "com.sec.android.app.launcher",
@@ -47,43 +17,37 @@
         {
             "deviceId": "R3CMB06TT1N",
             "name": "com.DongCompany.aws_to_google",
-            "processId": 32449,
-            "exited": false
+            "processId": 16367,
+            "exited": true
         },
         {
             "deviceId": "R3CMB06TT1N",
             "name": "com.DongCompany.aws_to_google",
-            "processId": 4544,
-            "exited": false
+            "processId": 5562,
+            "exited": true
         },
         {
             "deviceId": "R3CMB06TT1N",
             "name": "com.DongCompany.aws_to_google",
-            "processId": 5563,
-            "exited": false
+            "processId": 5728,
+            "exited": true
         },
         {
             "deviceId": "R3CMB06TT1N",
             "name": "com.DongCompany.aws_to_google",
-            "processId": 27824,
-            "exited": false
+            "processId": 16797,
+            "exited": true
         },
         {
             "deviceId": "R3CMB06TT1N",
             "name": "com.DongCompany.aws_to_google",
-            "processId": 26866,
-            "exited": false
+            "processId": 18048,
+            "exited": true
         },
         {
             "deviceId": "R3CMB06TT1N",
             "name": "com.DongCompany.aws_to_google",
-            "processId": 17977,
-            "exited": false
-        },
-        {
-            "deviceId": "R3CMB06TT1N",
-            "name": "com.DongCompany.aws_to_google",
-            "processId": 26896,
+            "processId": 28362,
             "exited": false
         }
     ],

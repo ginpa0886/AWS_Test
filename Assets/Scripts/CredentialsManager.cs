@@ -20,6 +20,7 @@ public class CredentialsManager
     public static CognitoAWSCredentials credentials = new CognitoAWSCredentials(
         identityPool, region
     );
+    
 
     // User's Cognito ID once logged in becomes set here
     public static string userid = "";

@@ -9,7 +9,7 @@ public class AuthenticationManager : MonoBehaviour
    // In production, should probably keep these in a config file
    private const string AppClientID = "575is8oia1241f0njck1ni303p"; // App client ID, found under App Client Settings
    private const string AuthCognitoDomainPrefix = "dongtest"; // Found under App Integration -> Domain Name. Changing this means it must be updated in all linked Social providers redirect and javascript origins
-   private const string RedirectUrl = "unitydl://yosulkong.com/";
+   private const string RedirectUrl = "unitydl://yosulkong.com/"/*"https://yosulkong.com/"*/;
    private const string Region = "ap-northeast-2"; // Update with the AWS Region that contains your services
 
    private const string AuthCodeGrantType = "authorization_code";
@@ -17,37 +17,79 @@ public class AuthenticationManager : MonoBehaviour
    private const string CognitoAuthUrl = ".auth." + Region + ".amazoncognito.com";
    private const string TokenEndpointPath = "/oauth2/token";
 
+
+
    private static string _userid = "";
 
+    string _returnType = "token";
    public async Task<bool> ExchangeAuthCodeForAccessToken(string rawUrlWithGrantCode)   // code to token
    {
-        Debug.Log("rawUrlWithGrantCode: " + rawUrlWithGrantCode);
+        Debug.Log("rawUrlWithGrantCode:_________________ " + rawUrlWithGrantCode);
 
-        // raw url looks like https://somedomain.com/?code=c91d8bf4-1cb6-46e5-b43a-8def466f3c55
-        string allQueryParams = rawUrlWithGrantCode.Split('?')[1];
+        if(_returnType == "code")
+        {
+            // raw url looks like https://somedomain.com/?code=c91d8bf4-1cb6-46e5-b43a-8def466f3c55
+            string allQueryParams = rawUrlWithGrantCode.Split('?')[1];
 
-      // it's likely there won't be more than one param
-      string[] paramsSplit = allQueryParams.Split('&');
+            // code로 사용하였을 때
+            // it's likely there won't be more than one param
+            string[] paramsSplit = allQueryParams.Split('&');
 
-      foreach (string param in paramsSplit)
-      {
-         // Debug.Log("param: " + param);
+            foreach (string param in paramsSplit)
+            {
+                // Debug.Log("param: " + param);
 
-         // find the code parameter and its value
-         if (param.StartsWith("code"))
-         {
-            string grantCode = param.Split('=')[1];
-            string grantCodeCleaned = grantCode.removeAllNonAlphanumericCharsExceptDashes(); // sometimes the url has a # at the end of the string
-            Debug.Log("Clean Token_" + "_" + grantCodeCleaned);
+                // find the code parameter and its value
+                if (param.StartsWith("code"))
+                {
+                    string grantCode = param.Split('=')[1];
+                    string grantCodeCleaned = grantCode.removeAllNonAlphanumericCharsExceptDashes(); // sometimes the url has a # at the end of the string
+                    Debug.Log("Clean Token_" + "_" + grantCodeCleaned);
 
-            return await CallCodeExchangeEndpoint(grantCodeCleaned);
-         }
-         else
-         {
-            Debug.Log("Code not found");
-         }
-      }
-      return false;
+                    return await CallCodeExchangeEndpoint(grantCodeCleaned);
+                }
+                else
+                {
+
+
+                    Debug.Log("Code not found");
+                }
+            }
+        }
+        else
+        {
+
+            string allQueryParams1 = rawUrlWithGrantCode.Split('#')[1];
+            string[] paramSplit2 = allQueryParams1.Split('&');
+            foreach (string param in paramSplit2)
+            {
+                // Debug.Log("param: " + param);
+
+                // find the code parameter and its value
+                if (param.StartsWith("id_token"))
+                {
+                    string grantCode = param.Split('=')[1];
+                    Debug.Log(grantCode);
+                    /*string grantCodeCleaned = grantCode.removeAllNonAlphanumericCharsExceptDashes();*/
+                    Cognito.id_token = grantCode;
+                    Debug.Log("id token값은________________     ");
+                    Debug.Log(grantCode);
+                }else if (param.StartsWith("access_token"))
+                {
+                    string grantCode = param.Split('=')[1];
+                    /*string grantCodeCleaned = grantCode.removeAllNonAlphanumericCharsExceptDashes();*/
+                    Cognito.access_Token = grantCode;
+                    Debug.Log("access token값은________________");
+                    Debug.Log(grantCode);
+                }
+                else
+                {
+
+                    Debug.Log("Code not found");
+                }
+            }
+        }
+        return false;
    }
 
    // exchanges grant code for tokens
@@ -79,6 +121,7 @@ public class AuthenticationManager : MonoBehaviour
             // Debug.Log("ID token: " + authenticationResultType.id_token);
 
             Cognito.access_Token = authenticationResultType.access_token;
+            Cognito.id_token = authenticationResultType.id_token;
 
             Debug.Log("authenticationResultType.access_token_" + authenticationResultType.access_token);
             Debug.Log("authenticationResultType.access_token_" + authenticationResultType.id_token);
@@ -233,7 +276,7 @@ public class AuthenticationManager : MonoBehaviour
    {
       // DOCS: https://docs.aws.amazon.com/cognito/latest/developerguide/login-endpoint.html
       string loginUrl = "https://" + AuthCognitoDomainPrefix + CognitoAuthUrl
-         + "/login?response_type=code&client_id="
+         + "/login?response_type=" + _returnType  + "&client_id="
          + AppClientID + "&redirect_uri=" + RedirectUrl +
          "&state=STATE" +
          "&scope=aws.cognito.signin.user.admin+email+openid+phone+profile";

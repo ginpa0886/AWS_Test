@@ -41,9 +41,10 @@ public class UIInputManager : MonoBehaviour
 
    public async void ProcessDeepLink(string deepLinkUrl)
    {
-      // TODO: add some validation
+        // TODO: add some validation
 
-      // Debug.Log("UIInputManager.ProcessDeepLink: " + deepLinkUrl);
+        // Debug.Log("UIInputManager.ProcessDeepLink: " + deepLinkUrl);
+        Debug.Log(deepLinkUrl.Length);
       bool exchangeSuccess = await _authenticationManager.ExchangeAuthCodeForAccessToken(deepLinkUrl);
 
       if (exchangeSuccess)
