@@ -3,7 +3,7 @@
     "m_SelectedPackage": {
         "deviceId": "R3CMB06TT1N",
         "name": "com.DongCompany.aws_to_google",
-        "processId": 28362,
+        "processId": 20361,
         "exited": false
     },
     "m_SelectedPriority": 1,
@@ -13,12 +13,6 @@
             "name": "com.sec.android.app.launcher",
             "processId": 1753,
             "exited": false
-        },
-        {
-            "deviceId": "R3CMB06TT1N",
-            "name": "com.DongCompany.aws_to_google",
-            "processId": 16367,
-            "exited": true
         },
         {
             "deviceId": "R3CMB06TT1N",
@@ -48,6 +42,12 @@
             "deviceId": "R3CMB06TT1N",
             "name": "com.DongCompany.aws_to_google",
             "processId": 28362,
+            "exited": true
+        },
+        {
+            "deviceId": "R3CMB06TT1N",
+            "name": "com.DongCompany.aws_to_google",
+            "processId": 20361,
             "exited": false
         }
     ],

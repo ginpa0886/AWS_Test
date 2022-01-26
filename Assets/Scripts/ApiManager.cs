@@ -1,11 +1,15 @@
 using UnityEngine;
 using UnityEngine.Networking;
 using System.Collections.Generic;
+using System.IO;
+using System.Collections;
 
 public class ApiManager : MonoBehaviour
 {
     private const string Api = "https://rj30ctdrv8.execute-api.ap-northeast-2.amazonaws.com/deploy/lambdatest";
     private const string Api2 = "https://rj30ctdrv8.execute-api.ap-northeast-2.amazonaws.com/deploy/lambdatest";
+
+    private const string Api3 = "https://rj30ctdrv8.execute-api.ap-northeast-2.amazonaws.com/deploy/s3";
     private AuthenticationManager _authenticationManager;
 
     public void CallTestGet()
@@ -16,6 +20,63 @@ public class ApiManager : MonoBehaviour
     public void CallTestPut()
     {
         CallTestApi2();
+    }
+
+    public async void CallS3()
+    {
+        /*UnityWebRequest webRequest = UnityWebRequestAssetBundle.GetAssetBundle("https://dongtest.s3.ap-northeast-2.amazonaws.com/AssetBundle");*/
+        /*UnityWebRequest webRequest = UnityWebRequest.GetAssetBundle()*/
+        UnityWebRequest webRequest = UnityWebRequest.Get(Api3);
+
+        await webRequest.SendWebRequest();
+
+        if(webRequest.result != UnityWebRequest.Result.Success)
+        {
+            Debug.Log("API Call Failed");
+            Debug.Log(webRequest.error);
+        }
+        else
+        {
+            //byte[] data = null;
+            /*Debug.Log(webRequest.downloadHandler.text);*/
+            //using (StreamReader reader = new StreamReader(webRequest.downloadHandler.text))
+            //{
+            //    using (var memstream = new MemoryStream())
+            //    {
+            //        var buffer = new byte[512];
+            //        var bytesRead = default(int);
+            //        while ((bytesRead = reader.BaseStream.Read(buffer, 0, buffer.Length)) > 0)
+            //            memstream.Write(buffer, 0, bytesRead);
+            //        data = memstream.ToArray();
+            //    }
+            //}
+            Debug.Log(webRequest.downloadHandler.text);
+            string[] _first = webRequest.downloadHandler.text.Split('[');
+            string[] _second = _first[1].Split(']');
+            Debug.Log(_second[0]);
+            string[] _third = _second[0].Split(',');
+
+            int[] _array = new int[_third.Length];
+            for(int i = 0; i < _array.Length; i++)
+            {
+                _array[i] = int.Parse(_third[i]);
+            }
+
+            string temp = "";
+            for(int i = 0; i < _array.Length; i++)
+            {
+                temp += _array[i] + ",";
+            }
+            Debug.Log(temp);
+                
+            
+
+            AssetBundle bundle = DownloadHandlerAssetBundle.GetContent(webRequest);
+            
+            Sprite _sprite = bundle.LoadAsset<Sprite>("bear_rolling");
+
+            AssetBundleSprite.instance.Set_Sprite(_sprite);
+        }
     }
 
     public async void CallTestApi()
@@ -120,7 +181,11 @@ public class ApiManager : MonoBehaviour
     {
         _authenticationManager = FindObjectOfType<AuthenticationManager>();
     }
+
+    
 }
+
+
 
 public class APITest
 {

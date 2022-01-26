@@ -9,7 +9,7 @@ public class AuthenticationManager : MonoBehaviour
    // In production, should probably keep these in a config file
    private const string AppClientID = "575is8oia1241f0njck1ni303p"; // App client ID, found under App Client Settings
    private const string AuthCognitoDomainPrefix = "dongtest"; // Found under App Integration -> Domain Name. Changing this means it must be updated in all linked Social providers redirect and javascript origins
-   private const string RedirectUrl = "unitydl://yosulkong.com/"/*"https://yosulkong.com/"*/;
+   private const string RedirectUrl = /*"unitydl://yosulkong.com/"*/"https://yosulkong.com/";
    private const string Region = "ap-northeast-2"; // Update with the AWS Region that contains your services
 
    private const string AuthCodeGrantType = "authorization_code";
@@ -21,7 +21,7 @@ public class AuthenticationManager : MonoBehaviour
 
    private static string _userid = "";
 
-    string _returnType = "token";
+    string _returnType = "code";
    public async Task<bool> ExchangeAuthCodeForAccessToken(string rawUrlWithGrantCode)   // code to token
    {
         Debug.Log("rawUrlWithGrantCode:_________________ " + rawUrlWithGrantCode);
@@ -30,7 +30,7 @@ public class AuthenticationManager : MonoBehaviour
         {
             // raw url looks like https://somedomain.com/?code=c91d8bf4-1cb6-46e5-b43a-8def466f3c55
             string allQueryParams = rawUrlWithGrantCode.Split('?')[1];
-
+            
             // code로 사용하였을 때
             // it's likely there won't be more than one param
             string[] paramsSplit = allQueryParams.Split('&');

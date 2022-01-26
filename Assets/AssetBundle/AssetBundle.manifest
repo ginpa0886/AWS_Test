@@ -1,0 +1,7 @@
+ManifestFileVersion: 0
+CRC: 4258283876
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: dongtest
+      Dependencies: {}
